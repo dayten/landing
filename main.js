@@ -34,17 +34,25 @@ function setBg(){
     if (hour < 6) {
         // night
         document.body.style.backgroundColor = "grey";
+        document.body.style.backgroundImage = "URL('images/morning.jpg'";
+        document.body.style.backgroundImage
+        document.body.style.color = "white"
+        
         greeting.textContent = 'Good Night';
+
     } else if (hour < 12) {
         document.body.style.backgroundColor = "blue";
+        document.body.style.backgroundImage = "URL('images/morning.jpg')";
         greeting.textContent = 'Good Morning';
 
     } else if (hour < 18){
         document.body.style.backgroundColor = "yellow";
+        document.body.style.backgroundImage = "URL('images/noon.jpg')";
         greeting.textContent = 'Good Afternoon';
 
     } else {
         document.body.style.backgroundColor = "Orange";
+        document.body.style.backgroundImage = "URL('images/evening.jpg')";
         greeting.textContent = 'Good Evening';
     }
 
