@@ -10,14 +10,15 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
-    background-im
+
     height: 100vh;
     color: black;
 
 }
 
 #time {
-    font-size: 8rem;
+    font-size: 6rem;
+    text-align: right;
 }
 
 h1{
