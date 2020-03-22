@@ -1,33 +1,143 @@
 * {
     box-sizing: border-box;
     margin: 0;
-    padding: 0;
+    padding: 2px;
 }
 body {
     font-family: 'Quicksand', sans-serif;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    /*align-items: center;
+   /* justify-content: center; */
     text-align: center;
-
     height: 100vh;
     color: black;
+    margin: 0;
+    padding: 0;
+
+}
+.greetings1 {
+    width: 600px;
+    text-align: center;
+    align-items: flex-start;
+
+    display: inline; 
+    font-size: 35px;
+    margin-bottom: 3rem;
+    position: fixed;
+    top: 1%;
+    left: 0;
+    text-align: left;
+}
 
 }
 
 #time {
-    font-size: 6rem;
+    font-size: 40px;
     text-align: right;
+    align-items: stretch;
+    float: left;
+    width: 450px;
+    display: inline; 
+    
 }
 
-h1{
+#time2 {
+    font-size: 50px;
+    float: left;
+    position: fixed;
+    bottom: 5%;
+    right: 0;
+}
+#weather {
+    width: 300px;
+    height: 300px;
+    position: fixed;
+    bottom: 5%;
+    left: 0;
+    border: 5px solid red;
+    margin: 5px;
+}
+#searchbar {
+    align-items: stretch;
+    position: absolute;
+    left: 30%;
+    bottom: 10%;
+    text-align: left;
+
+}
+#suggestion {
+
+    text-align: center;
+    align-items: flex-start;
+
+    display: inline; 
+    font-size: 25px;
     margin-bottom: 3rem;
+    position: fixed;
+    top: 10%;
+    left: 0;
+    text-align: left;
+ 
 }
-h2{
-    margin-bottom: 0.5rem;
-    opacity: 0.6;
+#suggestionBox{
+    width: 500px;
+    height: 450px;
+    text-align: center;
+    align-items: flex-start;
+
+    display: inline; 
+    font-size: 25px;
+    margin-bottom: 3rem;
+    position: fixed;
+    top: 15%;
+    left: 0;
+    text-align: left;
+    border: 5px solid red;
 }
+#music {
+    width: 300px;
+    height: 150px;
+    text-align: center;
+    align-items: flex-start;
+
+    display: inline; 
+    font-size: 25px;
+    margin-bottom: 3rem;
+    position: fixed;
+    top: 1%;
+    right: 1%;
+    text-align: left;
+    border: 5px solid red;}
+#news{
+    width: 500px;
+    height: 450px;
+    text-align: center;
+    align-items: flex-start;
+
+    display: inline; 
+    font-size: 25px;
+    margin-bottom: 3rem;
+    position: fixed;
+    top: 15%;
+    left: 60%;
+    text-align: left;
+    border: 5px solid red;}
+#history{
+    width: 500px;
+    height: 450px;
+    text-align: center;
+    align-items: flex-start;
+
+    display: inline; 
+    font-size: 25px;
+    margin-bottom: 3rem;
+    position: fixed;
+    top: 15%;
+    left: 30%;
+    text-align: left;
+    border: 5px solid red;}
+
 
 @media(max-width: 700px){
 

@@ -31,14 +31,14 @@ function setBg(){
     let today = new Date(),
     hour = today.getHours();
 
-    if (hour < 6) {
+    if (hour < 4) {
         // night
  
         document.body.style.backgroundImage = "URL('images/night.jpg'";
         document.body.style.backgroundImage
         document.body.style.color = "white"
         
-        greeting.textContent = 'Good Night';
+        greeting.textContent = 'Go to Sleep';
 
     } else if (hour < 12) {
 
@@ -46,7 +46,7 @@ function setBg(){
         greeting.textContent = 'Good Morning';
          document.body.style.color = "white"
 
-    } else if (hour < 18){
+    } else if (hour < 16){
    
         document.body.style.backgroundImage = "URL('images/noon.jpg')";
         greeting.textContent = 'Good Afternoon';

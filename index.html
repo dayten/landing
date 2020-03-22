@@ -8,22 +8,42 @@
         <title>Landing</title>
     </head>
     <body>
-        <div>
-            <h1 > 
-                <span id="greetings">Good morning</span>
-                <span id="name" contenteditable="true">abhinav</span>
-            </h1>
+
+
+    <div class="wrapper">
+        <div class="box greetings1"> 
+            <span id="greetings">Good morning</span>
+            <span id="name" contenteditable="true">abhinav</span>
         </div>
-        <div>
+        <div class="box" id="suggestion">  
+            <span id="focus" contenteditable="true">Topic</span>
+            <div id="suggestionBox">video suggestions</div>
+        </div>
+        <div class="box" id="time2" >
             <time id="time">3:03 PM</time>
         </div>
+        <div class="box">  
+            <form id="searchbar">
+                <label for="gsearch">Search Google:</label>
+                <input type="search" id="gsearch" name="gsearch" size="50%">
+            </form>
+        </div>
+        <div class="box" id="weather">weather
+        </div>
+        <div class="box" id="music">music box
+        </div>
+        <div class="box" id="news">news box
+        </div>
+        <div class="box" id="history">history box
+        </div>
+    </div>
+  
+  
 
-        <h2>
-            What is your focus for today
 
 
-        </h2>
-        <h2 id="focus" contenteditable="true">make cool videos</h2>
+
+
 
 
         <script src="main.js"></script>
