@@ -21,14 +21,17 @@
             <span id="focus" contenteditable="true">Topic</span> 
         </div>
             
-        <div class="box" id="suggestionBox">video suggestions</div>
+        <div class="box" id="suggestionBox"><iframe width="420" height="345" src="https://www.youtube.com/embed/tgbNymZ7vqY">
+        </iframe></div>
         
         <div class="box" id="time2" >
             <time id="time">3:03 PM</time>
         </div>
         <div class="box" id="searchbar">
-                <label for="gsearch">Search Google:</label>
-                <input type="search" id="gsearch" name="gsearch" size="50%">
+                <form action="http://google.com/search" target="_blank">Search Google:
+                    <input name="q" size="50%">
+                    <input type="submit">
+                </form>
         </div>
         <div class="box" id="weather">weather
         </div>
@@ -37,16 +40,12 @@
         </div>
         <div class="box" id="history">history box
         </div>
+        <div class="box" id="footer">
+        </div>
     </div>
   
-  
 
-
-
-
-
-
-
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
         <script src="main.js"></script>
     </body>
     </html>

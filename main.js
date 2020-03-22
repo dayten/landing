@@ -2,7 +2,10 @@
 const time = document.getElementById('time'),
 greeting = document.getElementById('greetings'),
 name = document.getElementById('name'),
-focus = document.getElementById('focus')
+focus = document.getElementById('focus'),
+history = document.getElementById('history'),
+footer = document.getElementById('footer'),
+weatherPage = document.getElementById('weather')
 
 
 //Show time
@@ -88,6 +91,32 @@ function addZero(n){
 name.addEventListener('keypress', setName);
 name.addEventListener('blur', setName);
 
+
+
 showTime();
 setBg();
-getName()
+getName();
+var url1 = ""
+$.getJSON('http://ip-api.com/json', function(data) {
+        
+    footer.innerHTML =  `You IP is ${data.query}, with ISP ${data.isp} from ${data.city}, ${data.country} - ${data.zip}`
+    url1 = 'http://api.openweathermap.org/data/2.5/weather?q=' + data.city + ',' + data.countryCode + '&appid=69f179a459032ed4c94e79e3a9e480ef';
+    localStorage.setItem('weatherUrl', url1);
+    weatherUrl = localStorage.getItem('weatherUrl')
+     
+
+    
+});
+if (localStorage.getItem('weatherUrl') == null ){
+    weatherPage.innerHTML = "no url"
+} else {
+    weatherPage.innerHTML = "found url"
+    weatherUrl = localStorage.getItem('weatherUrl')
+}
+ 
+$.getJSON(weatherUrl, function(weatherReport) {
+        temp = (weatherReport.main.temp /10)  
+        weatherPage.innerHTML = `Weather is ${weatherReport.weather[0].main} and Temp is ${temp} C` 
+
+        }); 
+        
