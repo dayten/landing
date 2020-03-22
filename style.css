@@ -16,25 +16,81 @@ body {
     padding: 0;
 
 }
-.greetings1 {
-    width: 600px;
-    text-align: center;
-    align-items: flex-start;
+.wrapper {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(15, [col] 100px ) ;
+    grid-template-rows: repeat(10, [row] auto  );
 
-    display: inline; 
+    color: #444;
+}
+
+.box {
+    border-style: solid;
+    border-color: hsl(red, 100%, 50%);
+    color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    font-size: 150%;
+    z-index:10;
+
+}
+
+.greetings1 {
+
     font-size: 35px;
-    margin-bottom: 3rem;
-    position: fixed;
-    top: 1%;
-    left: 0;
+    grid-column: col / span 11;
+    grid-row: row ;
     text-align: left;
 }
+#music {
+
+    grid-column: col 12/ span 4;
+    grid-row: row ;
 
 }
+#suggestion {
 
+    text-align: center;
+    grid-column: col / span 5;
+    grid-row: row 2;
+
+ 
+    font-size: 25px;
+
+
+ 
+}
+#suggestionBox{
+    grid-column: col 1/ span 5;
+    grid-row: row 3 / span 39;
+}
+#history{
+    grid-column: col 6/ span 5;
+    grid-row: row 2 / span 40;
+}
+#news{
+    grid-column: col 11/ span 5;
+    grid-row: row 2 / span 40;
+  }
+  #weather {
+    grid-column: col 1/ span 4;
+    grid-row: row 41 / span 23;
+}
+#searchbar {
+    grid-column: col 5 /span 7;
+    grid-row: row 62 ;
+
+
+}
+#time2 {
+    grid-column: col 12/ span 4;
+    grid-row: row 62;
+    text-align: center ;
+}
 #time {
     font-size: 40px;
-    text-align: right;
+
     align-items: stretch;
     float: left;
     width: 450px;
@@ -42,101 +98,14 @@ body {
     
 }
 
-#time2 {
-    font-size: 50px;
-    float: left;
-    position: fixed;
-    bottom: 5%;
-    right: 0;
-}
-#weather {
-    width: 300px;
-    height: 300px;
-    position: fixed;
-    bottom: 5%;
-    left: 0;
-    border: 5px solid red;
-    margin: 5px;
-}
-#searchbar {
-    align-items: stretch;
-    position: absolute;
-    left: 30%;
-    bottom: 10%;
-    text-align: left;
 
-}
-#suggestion {
 
-    text-align: center;
-    align-items: flex-start;
 
-    display: inline; 
-    font-size: 25px;
-    margin-bottom: 3rem;
-    position: fixed;
-    top: 10%;
-    left: 0;
-    text-align: left;
- 
-}
-#suggestionBox{
-    width: 500px;
-    height: 450px;
-    text-align: center;
-    align-items: flex-start;
 
-    display: inline; 
-    font-size: 25px;
-    margin-bottom: 3rem;
-    position: fixed;
-    top: 15%;
-    left: 0;
-    text-align: left;
-    border: 5px solid red;
-}
-#music {
-    width: 300px;
-    height: 150px;
-    text-align: center;
-    align-items: flex-start;
 
-    display: inline; 
-    font-size: 25px;
-    margin-bottom: 3rem;
-    position: fixed;
-    top: 1%;
-    right: 1%;
-    text-align: left;
-    border: 5px solid red;}
-#news{
-    width: 500px;
-    height: 450px;
-    text-align: center;
-    align-items: flex-start;
 
-    display: inline; 
-    font-size: 25px;
-    margin-bottom: 3rem;
-    position: fixed;
-    top: 15%;
-    left: 60%;
-    text-align: left;
-    border: 5px solid red;}
-#history{
-    width: 500px;
-    height: 450px;
-    text-align: center;
-    align-items: flex-start;
 
-    display: inline; 
-    font-size: 25px;
-    margin-bottom: 3rem;
-    position: fixed;
-    top: 15%;
-    left: 30%;
-    text-align: left;
-    border: 5px solid red;}
+
 
 
 @media(max-width: 700px){
