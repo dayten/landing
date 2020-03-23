@@ -129,6 +129,7 @@ $.getJSON( "https://ip-api.com/json", function(data) {
 
 if (localStorage.getItem('weatherUrl') == null ){
     weatherPage.innerHTML = "no url"
+    weatherUrl = "nodata"
 } else {
     weatherPage.innerHTML = "found url"
     weatherUrl = localStorage.getItem('weatherUrl')
