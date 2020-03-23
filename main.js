@@ -109,7 +109,7 @@ var suck
 //     weatherUrl = localStorage.getItem('weatherUrl')
 // });
 
-$.getJSON( "https://ip-api.com/json", function(data) {
+$.getJSON( "http://ip-api.com/json", function(data) {
     console.log( "success" );
     footer.innerHTML =  `You IP is ${data.query}, with ISP ${data.isp} from ${data.city}, ${data.country} - ${data.zip}`
     url1 = 'https://api.openweathermap.org/data/2.5/weather?q=' + data.city + ',' + data.countryCode + '&appid=69f179a459032ed4c94e79e3a9e480ef';
