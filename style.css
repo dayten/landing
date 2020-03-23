@@ -22,7 +22,7 @@ body {
 }
 
 .box {
-    border-style: solid;
+    /* border-style: solid; */
     color: #fff;
     border-radius: 5px;
     padding: 20px;

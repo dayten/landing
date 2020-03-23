@@ -97,16 +97,36 @@ showTime();
 setBg();
 getName();
 var url1 = ""
-$.getJSON('http://ip-api.com/json', function(data) {
+var data2 
+var suck
+
+//   history.innerHTML =  `You IP is ${data2.query}, with ISP ${data2.isp} from ${data2.city}, ${data2.country} - ${data2.zip}`
+// $.getJSON('http://ip-api.com/json', function(data) {
         
+//     footer.innerHTML =  `You IP is ${data.query}, with ISP ${data.isp} from ${data.city}, ${data.country} - ${data.zip}`
+//     url1 = 'http://api.openweathermap.org/data/2.5/weather?q=' + data.city + ',' + data.countryCode + '&appid=69f179a459032ed4c94e79e3a9e480ef';
+//     localStorage.setItem('weatherUrl', url1);
+//     weatherUrl = localStorage.getItem('weatherUrl')
+// });
+
+$.getJSON( "http://ip-api.com/json", function(data) {
+    console.log( "success" );
     footer.innerHTML =  `You IP is ${data.query}, with ISP ${data.isp} from ${data.city}, ${data.country} - ${data.zip}`
     url1 = 'http://api.openweathermap.org/data/2.5/weather?q=' + data.city + ',' + data.countryCode + '&appid=69f179a459032ed4c94e79e3a9e480ef';
     localStorage.setItem('weatherUrl', url1);
     weatherUrl = localStorage.getItem('weatherUrl')
-     
+  })
+    .done(function() {
+      console.log( "second success" );
+    })
+    .fail(function() {
+      console.log( "error" );
+    })
+    .always(function() {
+      console.log( "complete" );
+    });
 
-    
-});
+
 if (localStorage.getItem('weatherUrl') == null ){
     weatherPage.innerHTML = "no url"
 } else {
