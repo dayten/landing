@@ -5,7 +5,8 @@ name = document.getElementById('name'),
 focus = document.getElementById('focus'),
 history = document.getElementById('history'),
 footer = document.getElementById('footer'),
-weatherPage = document.getElementById('weather')
+weatherPage = document.getElementById('weather'),
+news = document.getElementById('news')
 
 
 //Show time
@@ -100,66 +101,78 @@ var url1 = ""
 var data2 
 var suck
 
-//   history.innerHTML =  `You IP is ${data2.query}, with ISP ${data2.isp} from ${data2.city}, ${data2.country} - ${data2.zip}`
-// $.getJSON('http://ip-api.com/json', function(data) {
-        
-//     footer.innerHTML =  `You IP is ${data.query}, with ISP ${data.isp} from ${data.city}, ${data.country} - ${data.zip}`
-//     url1 = 'http://api.openweathermap.org/data/2.5/weather?q=' + data.city + ',' + data.countryCode + '&appid=69f179a459032ed4c94e79e3a9e480ef';
-//     localStorage.setItem('weatherUrl', url1);
-//     weatherUrl = localStorage.getItem('weatherUrl')
-// });
-// function displayLocation(latitude,longitude){
-//     var request = new XMLHttpRequest();
 
-//     var method = 'GET';
-//     var url = 'http://maps.googleapis.com/maps/api/geocode/json?latlng='+latitude+','+longitude+'&sensor=true';
-//     var async = true;
+function getMoreDetails(latitude,longitude){
 
-//     request.open(method, url, async);
-//     request.onreadystatechange = function(){
-//       if(request.readyState == 4 && request.status == 200){
-//         var data = JSON.parse(request.responseText);
-//         var address = data.results[0].formatted_address;
-//         document.write(address);
-//       }
-//     };
-//     request.send();
-//   };
-// function getLocation() {
-//     if (navigator.geolocation) {
-//       navigator.geolocation.watchPosition(showPosition);
-//     } else { 
-//       history.innerHTML = "Geolocation is not supported by this browser.";
-//     }
-//   }
-      
-//   function showPosition(position) {
-//       history.innerHTML="Latitude: " + position.coords.latitude + 
-//       "<br>Longitude: " + position.coords.longitude;
-//       displayLocation(position.coords.latitude,position.coords.longitude)
-//   }
-//   getLocation();
+    var weatherUrl = 'https://weather.ls.hereapi.com/weather/1.0/report.json?product=observation&latitude=' + latitude+ '&longitude=' + longitude+ '&oneobservation=true&apiKey=WmS1Kg3mOO7NFOfJN8ZkpYbGDtnhufv9Iwopue2asZw'
+    var ipUrl = 'https://api.ipify.org?format=json'
+    var request = new XMLHttpRequest();
+    var method = 'GET';
+    var url = 'http://maps.googleapis.com/maps/api/geocode/json?latlng='+latitude+','+longitude+'&sensor=true';
+    var async = true;
+    request.open(method, ipUrl, async);
+    request.onreadystatechange = function(){
+      if(request.readyState == 4 && request.status == 200){
+        var data = JSON.parse(request.responseText);
+        localStorage.setItem('ip', data.ip);
+      } 
+    };
+    request.send();
+    request.open(method, weatherUrl, async);
+    request.onreadystatechange = function(){
+      if(request.readyState == 4 && request.status == 200){
+        var weatherData = JSON.parse(request.responseText);
+        localStorage.setItem('weather', JSON.stringify(weatherData));
+      } 
+    };
+    request.send();
 
-
-
-function ipLookUp () {
-    $.ajax('http://ip-api.com/json')
-    .then(
-        function success(data) {
-
-            footer.innerHTML =  `You IP is ${data.query}, with ISP ${data.isp} from ${data.city}, ${data.country} - ${data.zip}`
-            url1 = 'https://api.openweathermap.org/data/2.5/weather?q=' + data.city + ',' + data.countryCode + '&appid=69f179a459032ed4c94e79e3a9e480ef';
-            localStorage.setItem('weatherUrl', url1);
-            weatherUrl = localStorage.getItem('weatherUrl')
-        },
-  
-        function fail(data, status) {
-            console.log('Request failed.  Returned status of',
-                        status);
-        }
-    );
+  };
+function getLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.watchPosition(showPosition);
+    } else { 
+      history.innerHTML = "Geolocation is not supported by this browser.";
+    }
   }
-  ipLookUp()
+      
+  function showPosition(position) {
+      history.innerHTML="Latitude: " + position.coords.latitude + 
+      "<br>Longitude: " + position.coords.longitude;
+      getMoreDetails(position.coords.latitude,position.coords.longitude)
+  }
+
+  function puData() {
+      let ip = localStorage.getItem('ip');
+      let data = JSON.parse(localStorage.getItem('weather'));
+      let iconUrl = data.observations.location[0].observation[0].iconLink + '?apiKey=WmS1Kg3mOO7NFOfJN8ZkpYbGDtnhufv9Iwopue2asZw'
+      footer.innerHTML =  `You IP is ${ip}, from ${data.observations.location[0].city} , ${data.observations.location[0].state} - ${data.observations.location[0].city} `
+      //weatherPage.style.backgroundImage = " URL(${iconUrl})"
+      let text =  "<img src='" + iconUrl+ "' alt=" + data.observations.location[0].observation[0].iconName + "><br>" + data.observations.location[0].observation[0].temperature + " C<sup>o</sup><br>" + data.observations.location[0].observation[0].description + "<br>Wind Direction: " + data.observations.location[0].observation[0].windDesc
+      weatherPage.innerHTML = text}
+  getLocation();
+  puData();
+
+
+
+// function ipLookUp () {
+//     $.ajax('http://ip-api.com/json')
+//     .then(
+//         function success(data) {
+
+//             //footer.innerHTML =  `You IP is ${data.query}, with ISP ${data.isp} from ${data.city}, ${data.country} - ${data.zip}`
+//             url1 = 'https://api.openweathermap.org/data/2.5/weather?q=' + data.city + ',' + data.countryCode + '&appid=69f179a459032ed4c94e79e3a9e480ef';
+//             localStorage.setItem('weatherUrl', url1);
+//             weatherUrl = localStorage.getItem('weatherUrl')
+//         },
+  
+//         function fail(data, status) {
+//             console.log('Request failed.  Returned status of',
+//                         status);
+//         }
+//     );
+//   }
+//   ipLookUp()
 
 // $.getJSON( "http://ip-api.com/json", function(data) {
 //     console.log( "success" );
@@ -179,17 +192,16 @@ function ipLookUp () {
 //     });
 
 
-if (localStorage.getItem('weatherUrl') == null ){
-    weatherPage.innerHTML = "no url"
-    weatherUrl = "nodata"
-} else {
-    weatherPage.innerHTML = "found url"
-    weatherUrl = localStorage.getItem('weatherUrl')
-}
+// if (localStorage.getItem('weatherUrl') == null ){
+//     weatherPage.innerHTML = "no url"
+//     weatherUrl = "nodata"
+// } else {
+//     weatherPage.innerHTML = "found url"
+//     weatherUrl = localStorage.getItem('weatherUrl')
+// }
  
-$.getJSON(weatherUrl, function(weatherReport) {
-        temp = (weatherReport.main.temp /10)  
-        weatherPage.innerHTML = `Weather is ${weatherReport.weather[0].main} and Temp is ${temp} C` 
+// $.getJSON(weatherUrl, function(weatherReport) {
+//         temp = (weatherReport.main.temp /10)  
+//      //   weatherPage.innerHTML = `Weather is ${weatherReport.weather[0].main} and Temp is ${temp} C` 
 
-        }); 
-        
+//         }); 
