@@ -106,19 +106,35 @@ var suck
 function getMoreDetails(latitude,longitude){
 
     var weatherUrl = 'https://weather.ls.hereapi.com/weather/1.0/report.json?product=observation&latitude=' + latitude+ '&longitude=' + longitude+ '&oneobservation=true&apiKey=WmS1Kg3mOO7NFOfJN8ZkpYbGDtnhufv9Iwopue2asZw'
-    var ipUrl = 'https://api.ipify.org'
+    var ipUrl = 'https://api.ipify.org?format=json'
     var request = new XMLHttpRequest();
     var method = 'GET';
     var async = true;
-    request.open(method, ipUrl, async);
-    request.onreadystatechange = function(){
-      if(request.readyState == 4 && request.status == 200){
-       // var data = JSON.parse(request.responseText);
-        localStorage.setItem('ip', request.responseText);
-      } 
-    };
-    request.send();
-    request.open(method, weatherUrl, async);
+    // request.open(method, ipUrl, async);
+    // request.onreadystatechange = function(){
+    //   if(request.readyState == 4 && request.status == 200){
+    //    // var data = JSON.parse(request.responseText);
+    //     localStorage.setItem('ip', request.responseText);
+    //   } 
+    // };
+    $.getJSON(ipUrl, function(result) {
+      localStorage.setItem('ip', result.ip);
+      });
+    $.getJSON( "http://ip-api.com/json", function(result) {
+      localStorage.setItem('ip', result.ip);
+    console.log( "success" );
+    })
+    .done(function() {
+      console.log( "second success" );
+    })
+    .fail(function() {
+      console.log( "error" );
+    })
+    .always(function() {
+      console.log( "complete" );
+    });
+    // request.send();
+   request.open(method, weatherUrl, async);
     request.onreadystatechange = function(){
       if(request.readyState == 4 && request.status == 200){
         var weatherData = JSON.parse(request.responseText);
