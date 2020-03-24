@@ -128,17 +128,23 @@ function getMoreDetails(latitude,longitude){
 
   };
 function getLocation() {
-    if (navigator.geolocation) {
-      navigator.geolocation.watchPosition(showPosition);
-    } else { 
-      history.innerHTML = "Geolocation is not supported by this browser.";
+    if (localStorage.getItem('longitude') == null || localStorage.getItem('latitude') == null ) {
+      if (navigator.geolocation) {
+        navigator.geolocation.watchPosition(saveLoc);
+      } else { 
+        history.innerHTML = "Geolocation is not supported by this browser.";
+      }
     }
+    showPosition()
   }
-      
-  function showPosition(position) {
-      history.innerHTML="Latitude: " + position.coords.latitude + 
-      "<br>Longitude: " + position.coords.longitude;
-      getMoreDetails(position.coords.latitude,position.coords.longitude)
+  function saveLoc(position) { 
+    localStorage.setItem('longitude', position.coords.longitude);
+    localStorage.setItem('latitude', position.coords.latitude);
+  }   
+  function showPosition() {
+      history.innerHTML="Latitude: " + localStorage.getItem("latitude") + 
+      "<br>Longitude: " + localStorage.getItem("longitude");
+      getMoreDetails(localStorage.getItem("latitude"),localStorage.getItem("longitude"))
   }
 
   function puData() {
