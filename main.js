@@ -119,10 +119,6 @@ function getMoreDetails(latitude,longitude){
     // };
     $.getJSON(ipUrl, function(result) {
       localStorage.setItem('ip', result.ip);
-      });
-    $.getJSON( "http://ip-api.com/json", function(result) {
-      localStorage.setItem('ip', result.ip);
-    console.log( "success" );
     })
     .done(function() {
       console.log( "second success" );
