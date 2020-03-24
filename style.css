@@ -28,7 +28,7 @@ body {
     padding: 20px;
     font-size: 150%;
     z-index:10;
-     /* background-color:rgb(9, 43, 71)  */
+      /* background-color:rgb(9, 43, 71)   */
 
 }
 
@@ -71,24 +71,24 @@ body {
   }
   #weather {
     grid-column: col 1/ span 3;
-    grid-row: row 52 / span 12;
+    grid-row: row 44 / span 12;
     opacity: 80%;;
 }
 #searchbar {
     grid-column: col 5 /span 7;
-    grid-row: row 62 ;
+    grid-row: row 55 ;
 
 
 }
 #time2 {
     grid-column: col 12/ span 4;
-    grid-row: row 62;
+    grid-row: row 55;
     text-align: center ;
     font-size: 40px;
 }
 #footer {
     grid-column: col / span 15;
-    grid-row: row 63;
+    grid-row: row 57;
     text-align: center ;
     
 }
