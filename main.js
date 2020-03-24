@@ -108,7 +108,6 @@ function getMoreDetails(latitude,longitude){
     var ipUrl = 'https://api.ipify.org?format=json'
     var request = new XMLHttpRequest();
     var method = 'GET';
-    var url = 'http://maps.googleapis.com/maps/api/geocode/json?latlng='+latitude+','+longitude+'&sensor=true';
     var async = true;
     request.open(method, ipUrl, async);
     request.onreadystatechange = function(){
@@ -148,60 +147,13 @@ function getLocation() {
       let iconUrl = data.observations.location[0].observation[0].iconLink + '?apiKey=WmS1Kg3mOO7NFOfJN8ZkpYbGDtnhufv9Iwopue2asZw'
       footer.innerHTML =  `You IP is ${ip}, from ${data.observations.location[0].city} , ${data.observations.location[0].state} - ${data.observations.location[0].city} `
       //weatherPage.style.backgroundImage = " URL(${iconUrl})"
-      let text =  "<img src='" + iconUrl+ "' alt=" + data.observations.location[0].observation[0].iconName + "><br>" + data.observations.location[0].observation[0].temperature + " C<sup>o</sup><br>" + data.observations.location[0].observation[0].description + "<br>Wind Direction: " + data.observations.location[0].observation[0].windDesc
-      weatherPage.innerHTML = text}
+      let text =  "<img src='" + iconUrl+ "' alt=" + data.observations.location[0].observation[0].iconName + "><br>" + data.observations.location[0].observation[0].temperature + " C<sup>o</sup><br>" + data.observations.location[0].observation[0].description + "<br>Wind Direction: " + data.observations.location[0].observation[0].windDesc;
+      weatherPage.innerHTML = text;
+      if (data.observations.location[0].observation[0].daylight == "D") {
+        weatherPage.style.backgroundColor = "rgb(33, 133, 214)"
+      } else {
+        weatherPage.style.backgroundColor = "rgb(9, 43, 71)"
+      }
+      }
   getLocation();
   puData();
-
-
-
-// function ipLookUp () {
-//     $.ajax('http://ip-api.com/json')
-//     .then(
-//         function success(data) {
-
-//             //footer.innerHTML =  `You IP is ${data.query}, with ISP ${data.isp} from ${data.city}, ${data.country} - ${data.zip}`
-//             url1 = 'https://api.openweathermap.org/data/2.5/weather?q=' + data.city + ',' + data.countryCode + '&appid=69f179a459032ed4c94e79e3a9e480ef';
-//             localStorage.setItem('weatherUrl', url1);
-//             weatherUrl = localStorage.getItem('weatherUrl')
-//         },
-  
-//         function fail(data, status) {
-//             console.log('Request failed.  Returned status of',
-//                         status);
-//         }
-//     );
-//   }
-//   ipLookUp()
-
-// $.getJSON( "http://ip-api.com/json", function(data) {
-//     console.log( "success" );
-//     footer.innerHTML =  `You IP is ${data.query}, with ISP ${data.isp} from ${data.city}, ${data.country} - ${data.zip}`
-//     url1 = 'https://api.openweathermap.org/data/2.5/weather?q=' + data.city + ',' + data.countryCode + '&appid=69f179a459032ed4c94e79e3a9e480ef';
-//     localStorage.setItem('weatherUrl', url1);
-//     weatherUrl = localStorage.getItem('weatherUrl')
-//   })
-//     .done(function() {
-//       console.log( "second success" );
-//     })
-//     .fail(function() {
-//       console.log( "error" );
-//     })
-//     .always(function() {
-//       console.log( "complete" );
-//     });
-
-
-// if (localStorage.getItem('weatherUrl') == null ){
-//     weatherPage.innerHTML = "no url"
-//     weatherUrl = "nodata"
-// } else {
-//     weatherPage.innerHTML = "found url"
-//     weatherUrl = localStorage.getItem('weatherUrl')
-// }
- 
-// $.getJSON(weatherUrl, function(weatherReport) {
-//         temp = (weatherReport.main.temp /10)  
-//      //   weatherPage.innerHTML = `Weather is ${weatherReport.weather[0].main} and Temp is ${temp} C` 
-
-//         }); 
