@@ -26,6 +26,7 @@ function showTime(){
     //output time
     time.innerHTML = `${hour}<span>:<span>${addZero(min)}<span>:<span>${addZero(sec)}<span><span>${amPm}`;
     setTimeout(showTime, 1000);
+    
 
 }
 
@@ -105,15 +106,15 @@ var suck
 function getMoreDetails(latitude,longitude){
 
     var weatherUrl = 'https://weather.ls.hereapi.com/weather/1.0/report.json?product=observation&latitude=' + latitude+ '&longitude=' + longitude+ '&oneobservation=true&apiKey=WmS1Kg3mOO7NFOfJN8ZkpYbGDtnhufv9Iwopue2asZw'
-    var ipUrl = 'https://api.ipify.org?format=json'
+    var ipUrl = 'https://api.ipify.org'
     var request = new XMLHttpRequest();
     var method = 'GET';
     var async = true;
     request.open(method, ipUrl, async);
     request.onreadystatechange = function(){
       if(request.readyState == 4 && request.status == 200){
-        var data = JSON.parse(request.responseText);
-        localStorage.setItem('ip', data.ip);
+       // var data = JSON.parse(request.responseText);
+        localStorage.setItem('ip', request.responseText);
       } 
     };
     request.send();
@@ -128,18 +129,27 @@ function getMoreDetails(latitude,longitude){
 
   };
 function getLocation() {
+  let today = new Date();
+  hour = today.getHours()
+  lastHour = localStorage.getItem('hour');
+
+  if (hour != lastHour) {
     if (localStorage.getItem('longitude') == null || localStorage.getItem('latitude') == null ) {
       if (navigator.geolocation) {
         navigator.geolocation.watchPosition(saveLoc);
+        localStorage.setItem('hour', hour);
       } else { 
         history.innerHTML = "Geolocation is not supported by this browser.";
       }
     }
+  }
     showPosition()
   }
+
   function saveLoc(position) { 
     localStorage.setItem('longitude', position.coords.longitude);
     localStorage.setItem('latitude', position.coords.latitude);
+    
   }   
   function showPosition() {
       history.innerHTML="Latitude: " + localStorage.getItem("latitude") + 
