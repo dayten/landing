@@ -152,7 +152,7 @@ function getLocation() {
         navigator.geolocation.watchPosition(saveLoc);
         localStorage.setItem('hour', hour);
       } else { 
-        history.innerHTML = "Geolocation is not supported by this browser.";
+        //history.innerHTML = "Geolocation is not supported by this browser.";
       }
     }
     showPosition()
@@ -164,7 +164,7 @@ function getLocation() {
     
   }   
   function showPosition() {
-      history.innerHTML="Latitude: " + localStorage.getItem("latitude") + 
+     // history.innerHTML="Latitude: " + localStorage.getItem("latitude") + 
       "<br>Longitude: " + localStorage.getItem("longitude");
       getMoreDetails(localStorage.getItem("latitude"),localStorage.getItem("longitude"))
   }

@@ -22,7 +22,7 @@ body {
 }
 
 .box {
-     /* border-style: solid;  */
+     border-style: solid; 
     color: #fff;
     border-radius: 5px;
     padding: 20px;
@@ -48,7 +48,7 @@ body {
 #suggestion {
 
     text-align: center;
-    grid-column: col / span 5;
+    grid-column: col 6/ span 5;
     grid-row: row 2;
 
  
@@ -58,15 +58,15 @@ body {
  
 }
 #suggestionBox{
-    grid-column: col 1/ span 5;
+    grid-column: col 6/ span 5;
     grid-row: row 3 / span 39;
 }
 #history{
-    grid-column: col 6/ span 5;
+    grid-column: col 11/ span 5;
     grid-row: row 2 / span 40;
 }
 #news{
-    grid-column: col 11/ span 5;
+    grid-column: col / span 5;
     grid-row: row 2 / span 40;
   }
   #weather {
