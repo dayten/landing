@@ -16,6 +16,9 @@ function showTime(){
     hour = today.getHours(),
     min = today.getMinutes(),
     sec= today.getSeconds();
+    if (localStorage.getItem('hour') == null ) {
+      localStorage.setItem('hour', "-1");
+    }
     // set AM or PM
 
     const amPm = hour >= 12 ?  'PM' : 'AM' ;
@@ -145,9 +148,7 @@ function getLocation() {
   let today = new Date();
   hour = today.getHours()
   lastHour = localStorage.getItem('hour');
-
-  if (hour != lastHour) {
-    if (localStorage.getItem('longitude') == null || localStorage.getItem('latitude') == null ) {
+    if (localStorage.getItem('longitude') == null || localStorage.getItem('latitude') == null || lastHour != hour) {
       if (navigator.geolocation) {
         navigator.geolocation.watchPosition(saveLoc);
         localStorage.setItem('hour', hour);
@@ -155,7 +156,6 @@ function getLocation() {
         history.innerHTML = "Geolocation is not supported by this browser.";
       }
     }
-  }
     showPosition()
   }
 
