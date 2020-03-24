@@ -122,7 +122,6 @@ function getMoreDetails(latitude,longitude){
     // };
     $.getJSON(ipUrl, function(result) {
       localStorage.setItem('ip', result.ip);
-    console.log( "success" );
     })
     .done(function() {
       console.log( "second success" );
