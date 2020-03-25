@@ -34,26 +34,26 @@ body {
 
 .greetings1 {
 
-    font-size: 35px;
-    grid-column: col / span 5;
+    font-size: 30px;
+    grid-column: col / span 4;
     grid-row: row ;
     text-align: left;
 }
 #music {
 
     grid-column: col / span 4;
-    grid-row: row 2 /span 1;
+    grid-row: row 2 ;
 
 
 }
 #suggestion {
 
-    text-align: center;
-    grid-column: col 6/ span 5;
-    grid-row: row ;
+    text-align: left;
+    grid-column: col 5/ span 8;
+    grid-row: row 9 ;
 
  
-    font-size: 25px;
+    font-size: 20px;
 
 
  
@@ -64,32 +64,32 @@ body {
 }
 #stocks{
     grid-column: col / span 4;
-    grid-row: row 3 / span 6;
+    grid-row: row 3 / span 5;
 }
 #news{
     grid-column: col 13 / span 3;
     grid-row: row  / span 9 ;
   }
   #weather {
-    grid-column: col / span 3;
-    grid-row: row 9 / span 4;
+    grid-column: col / span 4;
+    grid-row: row 8 / span 4;
     opacity: 80%;
 }
 #searchbar {
-    grid-column: col 4/span 10;
-    grid-row: row 9 ;
+    grid-column: col 5/span 8;
+    grid-row: row  ;
 
 
 }
 #time2 {
     grid-column: col 14  / span 2;
-    grid-row: row 11 ;
+    grid-row: row 10 ;
     text-align: center ;
     font-size: 30px;
 }
 #footer {
-    grid-column: col 4/ span 10;
-    grid-row: row 11;
+    grid-column: col 5/ span 9;
+    grid-row: row 10;
     text-align: center ;
     font-size: 30px;
     
