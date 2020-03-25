@@ -7,7 +7,7 @@ body {
     font-family: 'Quicksand', sans-serif;
     text-align: center;
     height: 100vh;
-    color: black;
+    color: black
     margin: 0;
     padding: 0;
 
@@ -35,21 +35,22 @@ body {
 .greetings1 {
 
     font-size: 35px;
-    grid-column: col / span 11;
+    grid-column: col / span 5;
     grid-row: row ;
     text-align: left;
 }
 #music {
 
-    grid-column: col 12/ span 4;
-    grid-row: row ;
+    grid-column: col / span 4;
+    grid-row: row 2 /span 1;
+
 
 }
 #suggestion {
 
     text-align: center;
     grid-column: col 6/ span 5;
-    grid-row: row 2;
+    grid-row: row ;
 
  
     font-size: 25px;
@@ -58,38 +59,39 @@ body {
  
 }
 #suggestionBox{
-    grid-column: col 6/ span 5;
-    grid-row: row 3 / span 39;
+    grid-column: col 5/ span 8;
+    grid-row: row 2/ span 7;
 }
-#history{
-    grid-column: col 11/ span 5;
-    grid-row: row 2 / span 40;
+#stocks{
+    grid-column: col / span 4;
+    grid-row: row 3 / span 6;
 }
 #news{
-    grid-column: col / span 5;
-    grid-row: row 2 / span 40;
+    grid-column: col 13 / span 3;
+    grid-row: row  / span 9 ;
   }
   #weather {
-    grid-column: col 1/ span 3;
-    grid-row: row 44 / span 12;
-    opacity: 80%;;
+    grid-column: col / span 3;
+    grid-row: row 9 / span 4;
+    opacity: 80%;
 }
 #searchbar {
-    grid-column: col 5 /span 7;
-    grid-row: row 55 ;
+    grid-column: col 5/span 8;
+    grid-row: row 9 ;
 
 
 }
 #time2 {
-    grid-column: col 12/ span 4;
-    grid-row: row 55;
+    grid-column: col 14  / span 2;
+    grid-row: row 11 ;
     text-align: center ;
-    font-size: 40px;
+    font-size: 30px;
 }
 #footer {
-    grid-column: col / span 15;
-    grid-row: row 57;
+    grid-column: col 4/ span 10;
+    grid-row: row 11;
     text-align: center ;
+    font-size: 30px;
     
 }
 
