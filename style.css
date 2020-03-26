@@ -34,14 +34,14 @@ body {
 .greetings1 {
 
     font-size: 30px;
-    grid-column: col / span 4;
+    grid-column: col / span 5;
     grid-row: row ;
     text-align: left;
 }
 #music {
 
     grid-column: col / span 4;
-    grid-row: row 2 / span 3 ;
+    grid-row: row 2 / span 2 ;
 
 
 }
