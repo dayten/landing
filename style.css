@@ -7,9 +7,8 @@ body {
     font-family: 'Quicksand', sans-serif;
     text-align: center;
     height: 100vh;
-    color: black
-    margin: 0;
-    padding: 0;
+    color: black;
+
 
 }
 .wrapper {
@@ -42,7 +41,7 @@ body {
 #music {
 
     grid-column: col / span 4;
-    grid-row: row 2 ;
+    grid-row: row 2 / span 3 ;
 
 
 }
