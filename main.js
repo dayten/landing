@@ -185,3 +185,7 @@ function getLocation() {
       }
   getLocation();
   puData();
+  var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRlxdhin5fGn5xAQDO6FjUm0Zy8gs7s9gyP-TZGd855b4MZmKgBh-fD-VlMy3f-TB4Q_QT39XZnYReQ/pubhtml';
+
+
+  
