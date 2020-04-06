@@ -58,11 +58,11 @@ body {
  
 } */
 #suggestionBox{
-    grid-column: col 3/ span 11;
+    grid-column: col 4/ span 10;
     grid-row: row 2/ span 6;
 }
 #stocks{
-    grid-column: col / span 3;
+    grid-column: col / span 4;
     grid-row: row 4 / span 3;
 }
 #news{
