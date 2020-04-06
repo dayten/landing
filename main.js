@@ -7,7 +7,7 @@ history = document.getElementById('history'),
 footer = document.getElementById('footer'),
 weatherPage = document.getElementById('weather'),
 news = document.getElementById('news')
-
+getLocation();
 
 //Show time
 function showTime(){
@@ -193,7 +193,7 @@ function getLocation() {
   }
       
    
-    getLocation();
+    
     var dispId = setInterval(showPosition, 1000);
     
     // while ( localStorage.getItem('ip') != null) {
