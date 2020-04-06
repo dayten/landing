@@ -40,12 +40,12 @@ body {
 }
 #music {
 
-    grid-column: col / span 4;
-    grid-row: row 2  / span 2 ;
+    grid-column: col / span 3;
+    grid-row: row 2  ;
 
 
 }
-#suggestion {
+/* #suggestion {
 
     text-align: left;
     grid-column: col 5/ span 8;
@@ -56,22 +56,22 @@ body {
 
 
  
-}
+} */
 #suggestionBox{
-    grid-column: col 5/ span 8;
-    grid-row: row 2/ span 7;
+    grid-column: col 3/ span 11;
+    grid-row: row 2/ span 6;
 }
 #stocks{
-    grid-column: col / span 4;
-    grid-row: row 4 / span 5;
+    grid-column: col / span 3;
+    grid-row: row 3 / span 4;
 }
 #news{
     grid-column: col 13 / span 3;
     grid-row: row  / span 9 ;
   }
   #weather {
-    grid-column: col / span 4;
-    grid-row: row 8 / span 4;
+    grid-column: col / span 3;
+    grid-row: row 7 / span 3;
     opacity: 80%;
 }
 #searchbar {
@@ -82,13 +82,13 @@ body {
 }
 #time2 {
     grid-column: col 14  / span 2;
-    grid-row: row 10 ;
+    grid-row: row 8 ;
     text-align: center ;
     font-size: 30px;
 }
 #footer {
     grid-column: col 5/ span 9;
-    grid-row: row 10;
+    grid-row: row 8;
     text-align: center ;
     font-size: 30px;
     
